@@ -1,0 +1,109 @@
+version: 1
+templates:
+  # ---- LIGHTS ----
+  light.onoff:
+    kind: light
+    title: "Light On/Off"
+    capabilities:
+      brightness: false
+      color_temp: false
+      rgb: false
+  light.dim:
+    kind: light
+    title: "Light Dimmable"
+    capabilities:
+      brightness: true
+      color_temp: false
+      rgb: false
+  light.ct:
+    kind: light
+    title: "Light CT (white temperature)"
+    capabilities:
+      brightness: true
+      color_temp: true
+      rgb: false
+  light.rgb:
+    kind: light
+    title: "Light RGB"
+    capabilities:
+      brightness: true
+      color_temp: false
+      rgb: true
+  light.rgbct:
+    kind: light
+    title: "Light RGB + CT"
+    capabilities:
+      brightness: true
+      color_temp: true
+      rgb: true
+
+  # ---- SWITCH ----
+  switch.basic:
+    kind: switch
+    title: "Switch (On/Off)"
+    capabilities: {}
+  # ---- TEMPERATURE SENSORS ----
+  sensor.temp-basic:
+    kind: sensor.temp
+    title: "Temperature Sensor (basic)"
+    capabilities:
+      min: 15
+      max: 30
+      target: 22
+      drift: 0.05
+      noise: 0.1
+      unit: "°C"
+      decimals: 1
+
+  sensor.temp-ambient:
+    kind: sensor.temp
+    title: "Ambient Temperature (slow drift)"
+    capabilities:
+      min: 18
+      max: 28
+      target: 21.5
+      drift: 0.02
+      noise: 0.05
+      unit: "°C"
+      decimals: 1
+
+  sensor.temp-room:
+    kind: sensor.temp
+    title: "Room Temp (wider range)"
+    capabilities:
+      min: 5
+      max: 35
+      target: 20
+      drift: 0.07
+      noise: 0.2
+      unit: "°C"
+      decimals: 1
+  # ---- COVER ----
+  cover.standard:
+    kind: cover
+    title: "Cover (standard)"
+    capabilities:
+      speedPerTick: 5
+      invert: false
+
+  cover.slow-inverted:
+    kind: cover
+    title: "Cover (slow, inverted)"
+    capabilities:
+      speedPerTick: 2
+      invert: true
+
+  # ---- FAN ----
+  fan.3speed:
+    kind: fan
+    title: "Fan 3-Speed"
+    capabilities:
+      maxSpeed: 3
+      defaultSpeed: 1
+
+  fan.5speed:
+    kind: fan
+    title: "Fan 5-Speed"
+    capabilities:
+      maxSpeed: 5
+      defaultSpeed: 2

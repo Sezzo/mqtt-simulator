@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx @angular/cli@latest new mqtt-web --routing --style=scss --package-manager=npm --skip-git)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run start:dev:*)",
+      "Bash(timeout 15 npm run start:dev)",
+      "Bash(npm --version:*)",
+      "Bash(node --version:*)",
+      "Bash(timeout 10 npm run start:dev:*)",
+      "Bash(npm run:*)",
+      "Bash(timeout 10 npm start)",
+      "Bash(curl:*)",
+      "Bash(lsof:*)",
+      "Bash(netstat:*)",
+      "WebFetch(domain:material.angular.dev)",
+      "Bash(git config:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

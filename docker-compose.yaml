@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  app:
+    build: ./mqtt-sim
+    restart: unless-stopped
+    depends_on:
+      - broker
+    environment:
+      PORT: 4444
+      MQTT_URL: mqtt://broker:1883
+      MQTT_NAMESPACE: sim
+      MQTT_QOS: 1
+      MQTT_RETAINED: "true"
+      DB_DATABASE: /data/dev.db
+      DB_SYNCHRONIZE: "true"
+      DISCOVERY_ENABLED: "true"
+      DEVICE_TEMPLATES_PATH: /app/config/device-templates.yaml
+      # optional credentials if you lock Mosquitto:
+      # MQTT_USERNAME: sim
+      # MQTT_PASSWORD: secret
+    ports:
+      - "4444:4444"
+    volumes:
+      - app-data:/data
+      - ./config:/app/config:ro
+
+volumes:
+  mosquitto-data:
+  mosquitto-log:
+  app-data:
